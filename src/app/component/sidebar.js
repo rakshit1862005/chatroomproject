@@ -18,7 +18,7 @@ export default function Sidebar() {
             <Link
               key={label}
               href={href}
-              className="min-w-65 min-h-15 rounded-md hover:bg-zinc-700 transition text-2xl font-light px-6 py-4 text-white flex items-center"
+              className="min-w-65 min-h-15 rounded-md hover:bg-zinc-700 transition text-[20px] font-light text-white flex items-center m-6"
             id='bartext'>
               {label}
             </Link>
