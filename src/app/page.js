@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import Sidebar from "./component/sidebar";
 import Home from "./home/page.js"
 
 export default function RootLayout({ children }) {
@@ -8,7 +8,6 @@ export default function RootLayout({ children }) {
     <html>
       <body>
         <Home></Home>
-        <Sidebar></Sidebar>
       </body>
     </html>
   );

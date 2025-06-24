@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function RootLayout({ children }) {
+export default function Sidebar({ }) {
 
   const navItems = [
     { label: 'Home', href: '/' },
