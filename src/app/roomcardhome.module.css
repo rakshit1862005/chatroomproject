@@ -1,0 +1,45 @@
+.homecardcont{
+    display: flex;
+    flex-direction: column;
+    height: 22vh;
+    width: 70vw;
+    background-color: #252424;
+    border-radius: 10px;
+    
+}
+
+.roomtitle{
+    color: white;
+    font-weight: 100;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.roommembers{
+    color: white;
+    font-weight: 100;
+    font-size: medium;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+.roomrecent{
+    color: white;
+    font-weight: 100;
+    font-size: medium;
+    margin-left: 2%;
+    margin-top: 4%;
+}
+
+.roomtime{
+    color: white;
+    font-weight: 100;
+    font-size: medium;
+    margin-top: 4%;
+    
+}
+
+.rrt{
+    display: flex;
+    gap: 65%;
+}
