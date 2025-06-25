@@ -12,8 +12,8 @@ export default function Sidebar() {
 
   return (
     <div className="flex h-screen">
-      <div className="w-1/5 bg-[#252424] p-4 flex flex-col justify-center items-center gap-4">
-        <div className="flex flex-col gap-4 align-center">
+      <div className="w-1/5 bg-[#252424] p-4 flex flex-col justify-center items-center gap-2">
+        <div className="flex flex-col gap-2 align-center">
           {navItems.map(({ label, href }) => (
             <Link
               key={label}
