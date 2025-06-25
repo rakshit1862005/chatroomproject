@@ -20,6 +20,7 @@ export default function Login() {
 
         if(data.message=="Logged-IN"){
             console.log("Loggned IN");
+            localStorage.setItem('userid',usern);
         }
         else{
             console.log("Error Incorrect Credentials");
@@ -27,6 +28,8 @@ export default function Login() {
         }
 }
     return (
+        <>
+        <Sidebar></Sidebar>
         <div className="flex flex-col items-center justify-center h-screen">
             
             <form onSubmit={handlesubmit} className="flex flex-col min-w-1/4 min-h-2/4 rounded-xl items-center justify-center align-center gap-4" >
@@ -47,5 +50,6 @@ export default function Login() {
                 <button className='min-w-50 text-[25px] font-bold rounded-2xl border-[#252424] border-2 '>Login</button>
             </form>
         </div>
+        </>
     )
 }
