@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 
 export async function connectdb() {
+    const uri = process.env.MONGO_URL;
+    console.log(uri)
     try{
-        mongoose.connect(process.env.MONGO_URL);
+        await mongoose.connect(process.env.MONGO_URL);
         const connection = mongoose.connection;
         connection.on('connected',()=>{
             console.log('Connected');

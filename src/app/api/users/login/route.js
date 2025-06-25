@@ -7,12 +7,10 @@ export async function POST(req) {
     console.log("Request Recieved");
     const body = await req.json();
     const{username,password}= body;
-
-    const user = await User.findOne({ username: username.trim().toLowerCase() });
+    const user = await User.findOne({username: username.trim()});
     
     if(!user){
         return new Response(JSON.stringify({message:'UserName Not Registered',
-            username:user.username
         }))
     }
     let match = 0;
