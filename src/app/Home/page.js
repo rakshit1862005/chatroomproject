@@ -22,12 +22,14 @@ export default function Home(){
                 <div id="dot">
                 <div id="chatdisplay">
                     <img src='/images/add.svg' id="addbox"></img>
-                    <h2 id="jnr">Join Rooms Now</h2>
+                    <h2 id="jnr">---- Join Rooms Now ----</h2>
                 </div>
                 </div>
                 </div>
             ):(
-                <div>Please Log IN</div>
+                <div className="mainarea">
+                <div className="wcom">Please Log IN</div>
+                </div>
             )
 
             }

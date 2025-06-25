@@ -3,9 +3,16 @@
 import axios from 'axios';
 import { User } from 'lucide-react';
 import Sidebar from '../component/sidebar';
+import { useEffect, useState } from 'react';
 
 export default function Login() {
-
+    const [userid,setuserid] = useState(null);
+    useEffect(()=>{
+        const temp = localStorage.getItem('userid');
+        if(temp){
+            setuserid(temp);
+        }
+    },[userid])
     async function handlesubmit() {
         event.preventDefault();
         const usern = document.getElementById('user').value;
@@ -21,15 +28,22 @@ export default function Login() {
         if(data.message=="Logged-IN"){
             console.log("Loggned IN");
             localStorage.setItem('userid',usern);
+            setuserid(localStorage.getItem('userid'));
         }
         else{
             console.log("Error Incorrect Credentials");
             console.log(data);
         }
 }
+function logout(){
+    localStorage.removeItem('userid');
+    setuserid(null);
+}
+
     return (
         <>
         <Sidebar></Sidebar>
+        {!userid?(
         <div className="flex flex-col items-center justify-center h-screen">
             
             <form onSubmit={handlesubmit} className="flex flex-col min-w-1/4 min-h-2/4 rounded-xl items-center justify-center align-center gap-4" >
@@ -49,7 +63,12 @@ export default function Login() {
                 <div></div>
                 <button className='min-w-50 text-[25px] font-bold rounded-2xl border-[#252424] border-2 '>Login</button>
             </form>
-        </div>
+        </div>):(
+            <div className='mainarea'>
+                <div className='wcom'>Welcome {userid}! <button onClick={logout} id='logout'>Log Out</button> </div>
+                    
+            </div>
+        )}
         </>
     )
 }
