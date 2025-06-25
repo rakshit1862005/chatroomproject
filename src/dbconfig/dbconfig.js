@@ -4,6 +4,16 @@ export async function connectdb() {
     try{
         mongoose.connect(process.env.MONGO_URL);
         const connection = mongoose.connection;
-        connection.on()
+        connection.on('connected',()=>{
+            console.log('Connected');
+            return ('connected');
+        })
+        connection.on('error',()=>{
+            console.log('MongoDB Connection Error')
+        })
+    }
+    catch(error){
+        console.log("Something Went Wrong While Connecting To DB");
+        return('not connected')
     }
 }
