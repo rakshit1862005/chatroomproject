@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { User } from 'lucide-react';
+import Sidebar from '../component/sidebar';
 
 export default function Login() {
 
@@ -27,6 +28,7 @@ export default function Login() {
 }
     return (
         <div className="flex flex-col items-center justify-center h-screen">
+            
             <form onSubmit={handlesubmit} className="flex flex-col min-w-1/4 min-h-2/4 rounded-xl items-center justify-center align-center gap-4" >
                 <div className="flex flex-row font-bold text-[30px]">
                     <User size={40} />

@@ -11,19 +11,18 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="flex h-screen">
-      <div className="w-1/5 bg-[#252424] p-4 flex flex-col justify-center items-center gap-2">
-        <div className="flex flex-col gap-2 align-center">
-          {navItems.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className="min-w-65 min-h-15 rounded-md hover:bg-zinc-700 transition text-[20px] font-light text-white flex items-center m-6"
-            id='bartext'>
-              {label}
-            </Link>
-          ))}
-        </div>
+    <div className="fixed top-0 left-0 h-screen w-1/5 bg-[#252424] p-4 flex flex-col justify-center items-center gap-2 z-50">
+      <div className="flex flex-col items-start gap-6 w-full px-4">
+        {navItems.map(({ label, href }) => (
+          <Link
+            key={label}
+            href={href}
+            className="w-11/12 h-12 rounded-md hover:bg-zinc-700 transition text-[20px] font-light text-white "
+            id="bartext"
+          >
+            {label}
+          </Link>
+        ))}
       </div>
     </div>
   );
