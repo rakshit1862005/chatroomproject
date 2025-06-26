@@ -6,10 +6,12 @@ import Sidebar from '../component/sidebar';
 import { useEffect, useState } from 'react';
 
 export default function Login() {
+  /*define states*/
   const [userid, setuserid] = useState(null);
   const [signup, setsignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  /*check for login*/
   useEffect(() => {
     const temp = localStorage.getItem('userid');
     if (temp) {
@@ -17,6 +19,7 @@ export default function Login() {
     }
   }, [userid]);
 
+  /*login on submitting form*/
   async function handlesubmit(event) {
     event.preventDefault();
     const usern = document.getElementById('user').value;
@@ -39,11 +42,13 @@ export default function Login() {
     }
   }
 
+  /*logout*/
   function logout() {
     localStorage.removeItem('userid');
     setuserid(null);
   }
 
+  /*signup state*/
   const handlesignup = () => {
     setsignup(true);
   };
@@ -114,17 +119,17 @@ export default function Login() {
             >
               <div className="flex flex-row font-bold text-[30px] mb-4">
                 <User size={40} />
-                <span className="inline-block text-center min-w-[100px]">Login</span>
+                <span className="inline-block text-center min-w-[100px] id=lgin">Login</span>
               </div>
 
               <input
                 type="text"
-                className="border-b-2 border-[#252424] bg-transparent min-h-[35px] focus:outline-none focus:border-white w-full placeholder-gray-400"
+                className="border-b-2 border-[#252424] bg-transparent min-h-[35px] focus:outline-none focus:border-white w-75 placeholder-gray-400"
                 placeholder="Username"
                 id="user"
               />
 
-              <div className="relative w-full">
+              <div className="relative w-75">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   className="w-full border-b-2 border-[#252424] bg-transparent min-h-[35px] focus:outline-none focus:border-white pr-10 placeholder-gray-400"
@@ -162,7 +167,7 @@ export default function Login() {
         ) : (
           <div className="mainarea">
             <div className="wcom">
-              Welcome {userid}! <button onClick={logout}>Log Out</button>
+              Welcome {userid}! <button onClick={logout} id='logout'>Log Out</button>
             </div>
           </div>
         )}

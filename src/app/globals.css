@@ -111,7 +111,7 @@ a {
 
 #jnr{
     font-family: 'Noto Sans';
-    font-family: 100;
+    font-weight: 100;
     font-size: 30px;
     filter: opacity(0.5);
   }
@@ -134,4 +134,9 @@ a {
   color: rgba(255, 255, 255, 0.8);
   border: 3px solid rgba(255, 255, 255, 0.8);
   transition: 0.3s ease;
+}
+
+#lgin{
+    font-family: 'Noto Sans';
+    font-weight: 100;
 }
