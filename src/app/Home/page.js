@@ -6,13 +6,13 @@ import { useEffect, useState } from "react"
 import io from 'socket.io-client'
 
 
+const socket = io.connect('http://localhost:8000');
 
 async function send(message) {
     socket.emit("send_message",{message:message});
 }
 
 export default function Home(){
-    const socket = io.connect('http://localhost:8000');
     const [userid,setuserid] = useState(null)
     useEffect(()=>{
         socket.on("recieve_message",(data)=>{
