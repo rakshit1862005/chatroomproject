@@ -140,3 +140,9 @@ a {
     font-family: 'Noto Sans';
     font-weight: 100;
 }
+
+#message{
+  outline: none;
+  border: 2px solid white;
+  
+}
