@@ -6,12 +6,11 @@ import Sidebar from '../component/sidebar';
 import { useEffect, useState } from 'react';
 
 export default function Login() {
-  /*define states*/
+
   const [userid, setuserid] = useState(null);
   const [signup, setsignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  /*check for login*/
   useEffect(() => {
     const temp = localStorage.getItem('userid');
     if (temp) {
@@ -19,7 +18,6 @@ export default function Login() {
     }
   }, [userid]);
 
-  /*login on submitting form*/
   async function handlesubmit(event) {
     event.preventDefault();
     const usern = document.getElementById('user').value;
@@ -42,13 +40,11 @@ export default function Login() {
     }
   }
 
-  /*logout*/
   function logout() {
     localStorage.removeItem('userid');
     setuserid(null);
   }
 
-  /*signup state*/
   const handlesignup = () => {
     setsignup(true);
   };
