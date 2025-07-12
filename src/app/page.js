@@ -6,10 +6,6 @@ import Message from "./component/message";
 
 export default function RootLayout({ children }) {
   return (
-    <html>
-      <body>
-        <Message></Message>
-      </body>
-    </html>
+        <Home></Home>
   );
 }

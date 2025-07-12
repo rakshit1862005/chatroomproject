@@ -1,4 +1,7 @@
+/* ✅ MUST be at the top — this is what broke it earlier */
 @import "tailwindcss";
+
+/* ✅ Other imports come AFTER the tailwind import */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 
