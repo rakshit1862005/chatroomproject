@@ -33,21 +33,26 @@ export default function MessageSection({ users }) {
           Users
         </h2>
         <ul className="space-y-2">
-          {users.map((user) => (
-            <li
-              key={user.id}
-              onClick={() => setSelectedUser(user)}
-              className={`border rounded-lg border-[#1A1A1A] py-2 px-4 cursor-pointer ${
-                selectedUser?.id === user.id
-                  ? 'bg-blue-100 text-blue-800 font-medium'
-                  : 'hover:bg-[#252424]'
-              }`}
-              style={{ padding: '10px', margin: '5px' }}
-            >
-              {user.name}
-            </li>
-          ))}
+          {users.length === 0 ? (
+            <li className="text-gray-400 px-4">No users available</li>
+          ) : (
+            users.map((user) => (
+              <li
+                key={user.id}
+                onClick={() => setSelectedUser(user)}
+                className={`border rounded-lg border-[#1A1A1A] py-2 px-4 cursor-pointer ${
+                  selectedUser?.id === user.id
+                    ? 'bg-blue-100 text-blue-800 font-medium'
+                    : 'hover:bg-[#252424]'
+                }`}
+                style={{ padding: '10px', margin: '5px' }}
+              >
+                {user.name}
+              </li>
+            ))
+          )}
         </ul>
+
       </div>
 
       {!selectedUser ? (
