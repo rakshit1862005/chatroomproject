@@ -5,40 +5,29 @@ import Login from "../myaccount/page"
 import { useEffect, useState } from "react"
 import socket from "@/socket"
 import axios from "axios"
-
+import MessagesPage from "../component/message"
+import MessageSection from "../component/UserList"
 
 async function getchats(username) {
-    let response = await axios.post()
+        let response = await axios.post(
+          'https://rjlp2mzq-8000.inc1.devtunnels.ms/api/lastchats',
+          { username: 'userxyz' }
+        );
+        console.log(response.data);
 }
-
-async function send(message) {
-    socket.emit("send_message",{message:message});
-}
-
-socket.on("connect", () => {
-  console.log("✅ Connected to socket:", socket.id);
-});
 
 export default function Home(){
     const [userid,setuserid] = useState(null)
     const [chatlist,setchatlist] = useState(null);
     
-useEffect(() => {
-    const handler = (data) => {
-        console.log("📥 Message received:", data);
-    };
-
-    socket.on("recieve_message", handler);
-
-    return () => {
-        socket.off("recieve_message", handler); 
-    };
-}, []);
-
     useEffect(()=>{
         const temp = localStorage.getItem('userid');
         if(temp){
             setuserid(temp);
+            const tchat = getchats(temp);
+            if(tchat){
+                setchatlist(tchat);
+            }
         }
     },[userid])
 
@@ -62,7 +51,9 @@ useEffect(() => {
                 </div>
                 </div>
                 ):(
-                    <div></div>
+                    <div>
+                        <MessagesPage></MessagesPage>
+                    </div>
                 )}
                 </>
             ):(

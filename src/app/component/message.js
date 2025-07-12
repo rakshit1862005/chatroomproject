@@ -15,7 +15,7 @@ export default function MessagesPage() {
       try {
         const res = await axios.post(
           'https://rjlp2mzq-8000.inc1.devtunnels.ms/api/lastchats',
-          { username: 'userxyz' }
+          { username: localStorage.getItem('userid') }
         );
 
         console.log("API Response:", res);
@@ -49,22 +49,19 @@ export default function MessagesPage() {
   };
 
   return (
+    <div>
     <div
-      className="flex h-screen border rounded-lg"
+      className="flex h-screen "
       style={{
-        padding: '30px',
-        marginLeft: '18%',
-        marginTop: '20px',
-        marginRight: '20px',
-        marginBottom: '20px',
+        position:'relative'
       }}
     >
-      <Sidebar />
       <UserList
         users={users}
         onSelectUser={setSelectedUser}
         selectedUser={selectedUser}
       />
+    </div>
     </div>
   );
 }

@@ -28,7 +28,9 @@ export default function MessageSection({ users }) {
 
   return (
     <div className="flex h-screen w-full">
-      <div className="w-1/6" style={{}}>
+      <div className="w-1/6" style={{
+        overflow:'scroll',
+      }}>
         <h2 className="flex justify-center text-xl items-center font-semibold" style={{}}>
           Users
         </h2>
@@ -60,7 +62,11 @@ export default function MessageSection({ users }) {
           Select a user to start chatting.
         </div>
       ) : (
-        <div className="flex flex-col flex-1 p-4 min-w-3/6">
+        <div className="flex flex-col flex-1 p-4 min-w-3/6"
+          style={{
+            position:'relative'
+          }}
+        >
           <div className="text-xl font-semibold border-b pb-2 mb-4">
             Chat with {selectedUser.name}
           </div>
